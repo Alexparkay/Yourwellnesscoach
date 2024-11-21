@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    @apply antialiased text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply leading-tight;
+  }
+
+  p {
+    @apply font-sans leading-relaxed tracking-wide;
+  }
+
+  .hero-subtitle {
+    @apply font-sans text-xl tracking-wide;
+  }
+
+  .section-subtitle {
+    @apply font-sans text-lg tracking-wide;
+  }
+
+  .testimonial-text {
+    @apply font-sans;
+  }
+
+  .service-title {
+    @apply font-heading text-2xl;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .aspect-w-16 {
+    position: relative;
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  }
+  
+  .aspect-h-9 {
+    --tw-aspect-h: 9;
+  }
+  
+  .aspect-w-16 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .aspect-w-4 {
+    --tw-aspect-w: 4;
+  }
+
+  .aspect-h-5 {
+    --tw-aspect-h: 5;
+  }
+
+  .invert {
+    filter: invert(1) brightness(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
