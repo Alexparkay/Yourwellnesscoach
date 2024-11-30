@@ -163,9 +163,8 @@ const App: React.FC = () => {
                   <span className="block text-blue-300">Mindful Wellness</span>
                 </h1>
                 <p className="hero-subtitle text-gray-200 mb-8">
-                  From the founder of Renati Recovery, discover a revolutionary approach to wellness coaching
-                  that goes beyond traditional personal training. Based in Milton Keynes, we focus on sustainable
-                  lifestyle transformation and lasting habit change.
+                  Ready to make real, lasting changes? Let's work together to improve your mental wellbeing, 
+                  develop a healthier relationship with food, and create a lifestyle that actually works for you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button 
@@ -178,10 +177,13 @@ const App: React.FC = () => {
                   <button 
                     className="flex items-center justify-center gap-2 text-blue-300 border-2 border-blue-300 px-8 py-4 rounded-lg text-lg font-heading font-semibold hover:bg-blue-300/10 transition-all"
                     onClick={() => {
-                      document.getElementById('testimonials')?.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
+                      const testimonialSection = document.getElementById('testimonials');
+                      if (testimonialSection) {
+                        testimonialSection.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }
                     }}
                   >
                     <Star className="w-5 h-5" />
@@ -294,17 +296,16 @@ const App: React.FC = () => {
                 <div>
                   <h2 className="text-4xl font-bold text-gray-900 mb-8">Meet Aki</h2>
                   <p className="section-subtitle text-gray-700 mb-12">
-                    As the founder of Renati Recovery, Aki brings 
-                    a unique blend of expertise and compassion to wellness coaching. His approach combines 
-                    cutting-edge wellness practices with personalized guidance, helping clients achieve 
-                    lasting transformation. With a deep understanding of both physical and mental wellness, 
-                    Aki specializes in creating sustainable lifestyle changes that work for your individual needs.
+                    Hey, I'm Aki! I've spent the last decade helping people like you make positive changes 
+                    that stick. I believe in keeping things simple and real - whether it's finding peace of mind, 
+                    making better food choices, or building lasting habits. Through my work, including founding 
+                    Renati Recovery, I've learned that lasting change happens when we focus on what works for you.
                   </p>
                   <div className="space-y-6 mb-12">
                     {[
                       { icon: <Award className="w-7 h-7 text-blue-500" />, text: "Certified Wellness Coach" },
-                      { icon: <Shield className="w-7 h-7 text-blue-500" />, text: "Founder of Renati Recovery" },
-                      { icon: <Brain className="w-7 h-7 text-blue-500" />, text: "Specialist in Habit Transformation" },
+                      { icon: <Brain className="w-7 h-7 text-blue-500" />, text: "Mental Health Specialist" },
+                      { icon: <Shield className="w-7 h-7 text-blue-500" />, text: "Nutrition & Habits Expert" },
                       { icon: <Dumbbell className="w-7 h-7 text-blue-500" />, text: "10+ Years Experience" }
                     ].map((credential, index) => (
                       <motion.div
@@ -312,29 +313,19 @@ const App: React.FC = () => {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 transition-all group"
+                        className="flex items-center gap-4 p-4 rounded-xl hover:bg-blue-50 transition-all"
                       >
                         <div className="flex-shrink-0 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
                           {credential.icon}
                         </div>
                         <span className="text-lg font-heading text-gray-800">{credential.text}</span>
-                        <motion.div
-                          className="absolute inset-0 rounded-xl bg-blue-200/20 z-0"
-                          initial={{ scale: 0.8, opacity: 0 }}
-                          whileHover={{ scale: 1, opacity: 1 }}
-                          transition={{ duration: 0.2 }}
-                        />
                       </motion.div>
                     ))}
                   </div>
                   <div className="flex flex-col items-center mb-12">
                     <div className="w-full max-w-screen-xl mx-auto px-4">
                       <div className="flex justify-center">
-                        <img
-                          src="/images/granade-logo.png"
-                          alt="Granade Recovery"
-                          className="h-20 w-auto object-contain invert"
-                        />
+                        {/* Removed Granade logo section */}
                       </div>
                     </div>
                   </div>
@@ -354,53 +345,56 @@ const App: React.FC = () => {
             </div>
           </Section>
 
-          {/* Location Section */}
+          {/* Online Coaching Access Section */}
           <Section transition="down" pattern="zigzag" className="py-32 bg-gray-50">
             <DecorativeCircles variant="blue" />
-            <BackgroundText text="LOCATION" />
-            <BackgroundText text="CONNECT" />
-            <div className="max-w-7xl mx-auto px-4">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-24">
-                <div className="md:w-1/2 relative order-2 md:order-1">
-                  <img
-                    src="/images/location-mk.jpg"
-                    alt="Milton Keynes location"
-                    className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
-                  />
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/10 to-transparent" />
-                </div>
-                <div className="md:w-1/2 order-1 md:order-2">
-                  <h2 className="text-4xl font-bold mb-6 text-gray-900">Located in Milton Keynes</h2>
-                  <p className="section-subtitle text-gray-700 mb-8">
-                    Offering premium one-on-one wellness coaching sessions in the heart of Milton Keynes.
-                    Transform your life with personalized guidance and support.
+            <BackgroundText text="ACCESS" />
+            <div className="max-w-3xl mx-auto px-4">
+              <div className="space-y-12">
+                {/* Online Coaching Info */}
+                <div className="space-y-6">
+                  <h2 className="text-4xl font-bold text-gray-900">Online Coaching Access</h2>
+                  <p className="text-gray-700">
+                    Get personalized support when it works for you. Weekly one-hour video sessions 
+                    during weekdays, plus ongoing WhatsApp support to keep you on track.
                   </p>
-                  <div className="space-y-6">
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="flex items-center gap-4"
-                    >
-                      <div className="flex-shrink-0 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <MapPin className="w-7 h-7 text-blue-500" />
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center">
+                        <MapPin className="w-6 h-6 text-blue-500" />
                       </div>
-                      <span className="text-lg font-heading text-gray-800">Milton Keynes, United Kingdom</span>
-                    </motion.div>
-                    
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      className="flex items-center gap-4"
-                    >
-                      <div className="flex-shrink-0 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Clock className="w-7 h-7 text-blue-500" />
+                      <span className="text-gray-800">Online Sessions Worldwide</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center">
+                        <Clock className="w-6 h-6 text-blue-500" />
                       </div>
-                      <span className="text-lg font-heading text-gray-800">Flexible scheduling available</span>
-                    </motion.div>
+                      <span className="text-gray-800">Weekday sessions + 24/7 WhatsApp support</span>
+                    </div>
                   </div>
                 </div>
+
+                {/* Laptop Image */}
+                <img
+                  src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80"
+                  alt="Online coaching"
+                  className="rounded-xl shadow-lg w-full aspect-video object-cover"
+                />
+
+                {/* Workbook Info */}
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-gray-900">Included Workbooks</h3>
+                  <p className="text-gray-600">
+                    Access practical workbooks covering mental wellness, nutrition guidance, and habit-building strategies.
+                  </p>
+                </div>
+
+                {/* Workbook Image */}
+                <img
+                  src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80"
+                  alt="Wellness Workbooks"
+                  className="rounded-xl shadow-lg w-full aspect-video object-cover"
+                />
               </div>
             </div>
           </Section>
@@ -460,12 +454,13 @@ const App: React.FC = () => {
                 <div>
                   <h3 className="text-2xl font-bold mb-4">Your Wellness Coach</h3>
                   <p className="text-gray-300">
-                    From the founder of Renati Recovery, transforming lives through mindful wellness coaching.
+                    Transforming lives through mindful wellness coaching, specializing in mental health, 
+                    nutrition, and sustainable habits.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold mb-4">Contact</h4>
-                  <p className="text-gray-300">Milton Keynes, UK</p>
+                  <p className="text-gray-300">Online Coaching</p>
                   <p className="text-gray-300">info@yourwellnesscoach.co.uk</p>
                 </div>
                 <div>

@@ -5,7 +5,12 @@ import { motion } from 'framer-motion';
 export const ScheduleForm = () => {
   const [step, setStep] = useState(1);
   const timeSlots = [
-    '09:00', '10:30', '12:00', '14:00', '15:30', '17:00'
+    '09:00 - 10:00',
+    '10:30 - 11:30',
+    '12:30 - 13:30',
+    '14:00 - 15:00',
+    '15:30 - 16:30',
+    '17:00 - 18:00'
   ];
 
   return (
